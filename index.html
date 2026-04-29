@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart To-Do List Pro</title>
+    <!-- link our stylesheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- toggle for dark/light mode -->
+        <button id="themeToggle" class="theme-btn">🌙 Dark Mode</button>
+
+        <h1>Smart To-Do List Pro</h1>
+
+        <!-- my extra feature: a search bar to quickly find specific tasks -->
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search tasks...">
+        </div>
+
+        <!-- section to add new tasks -->
+        <div class="add-task-section">
+            <!-- main task input -->
+            <input type="text" id="taskInput" placeholder="Enter a new task...">
+            
+            <!-- dropdown for priority levels (high/medium/low) -->
+            <select id="priorityInput">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+            </select>
+            
+            <!-- input for the due date and time -->
+            <input type="date" id="dueDateInput">
+            <input type="time" id="dueTimeInput">
+            
+            <button id="addBtn">Add Task</button>
+        </div>
+
+        <!-- buttons to save/load tasks from a json file -->
+        <div class="file-actions">
+            <!-- save to file button -->
+            <button id="saveBtn">Save to File</button>
+            <!-- hidden file input for loading -->
+            <input type="file" id="loadFile" accept=".json" style="display: none;">
+            <button id="loadBtn" onclick="document.getElementById('loadFile').click()">Load from File</button>
+        </div>
+
+        <!-- tabs to filter pending vs completed tasks -->
+        <div class="filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="pending">Pending</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+
+        <!-- the actual list where tasks will show up -->
+        <ul id="taskList"></ul>
+    </div>
+
+    <!-- link our script -->
+    <script src="script.js"></script>
+</body>
+</html>
